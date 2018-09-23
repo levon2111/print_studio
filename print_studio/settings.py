@@ -17,8 +17,6 @@ import sys
 import django_heroku
 import dj_database_url
 
-django_heroku.settings(locals())
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -100,17 +98,21 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media/')
 MEDIA_URL = '/media/'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'print',
+#         'USER': 'print_user',
+#         'PASSWORD': 'root',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'print',
-        'USER': 'print_user',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
-    }
+    'default': dj_database_url.config(
+        default='postgres://mrsjctewbdtmqw:10f0ca8f5b310135001248dd02b5cd680281576d9c4a80fc76bdfe60dbec88a5@ec2-54-83-50-145.compute-1.amazonaws.com:5432/da4844gth9ahpb'
+    )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -177,3 +179,5 @@ EMAIL_HOST_PASSWORD = 'e9fe03746b87bc87a03017cdc95a30ad'
 EMAIL_PORT = 2525
 
 SENDER_EMAIL = 'levon2111@gmail.com'
+django_heroku.settings(locals())
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
