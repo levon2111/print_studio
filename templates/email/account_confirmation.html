@@ -1,0 +1,19 @@
+{% extends "email/base.html" %}
+
+{% block content %}
+<br>
+Hi {{ name }}
+<br>
+<br>
+Welcome to Print Studio - The best online platform where you can print suitable, high-quality photos.
+Please <a
+        href="{{ client_side_url }}/confirm-account/{{ token }}">activate</a> your account to be able to use its features fully.
+<br>
+<br>
+<br>
+<br>
+<br>
+With regards,<br>
+Print Stidio team<br>
+
+{% endblock %}
