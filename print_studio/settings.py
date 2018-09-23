@@ -181,3 +181,4 @@ EMAIL_PORT = 2525
 SENDER_EMAIL = 'levon2111@gmail.com'
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+ 
